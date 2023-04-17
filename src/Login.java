@@ -5,6 +5,7 @@ public class Login {
 
     public static boolean logins(User users) {
         boolean cek = false;
+        int check = 2;
         users.setUsername("admin");
         users.setPassword("admin");
 
@@ -19,15 +20,16 @@ public class Login {
         password = input.nextLine();
 
         //proses
-        if (users.getUsername().equals(username) || users.getUsernameCust().equals(username)) {
-            if (users.getPassword().equals(password)) {
-                users.setStatus("admin");
-                cek = true;
-            } else if (users.getPasswordCust().equals(password)) {
-                users.setStatus("customer");
-                cek = true;
+            if (users.getUsername().equals(username) || users.getUsernameCust().equals(username)) {
+                check = 0;
+                if (users.getPassword().equals(password)) {
+                    users.setStatus("admin");
+                    cek = true;
+                } else if (users.getPasswordCust().equals(password)) {
+                    users.setStatus("customer");
+                    cek = true;
+                }
             }
-        }
-        return cek;
+            return cek;
     }
 }
