@@ -14,21 +14,19 @@ public class Login {
 
         //layar user
         String username, password;
-        System.out.print("Masukkan username: ");
+        System.out.print("\nMasukkan username: ");
         username = input.nextLine();
         System.out.print("Masukkan password: ");
         password = input.nextLine();
 
         //proses
-            if (users.getUsername().equals(username) || users.getUsernameCust().equals(username)) {
-                check = 0;
-                if (users.getPassword().equals(password)) {
-                    users.setStatus("admin");
-                    cek = true;
-                } else if (users.getPasswordCust().equals(password)) {
-                    users.setStatus("customer");
-                    cek = true;
-                }
+        check=0;
+            if (users.getUsername().equals(username) && users.getPassword().equals(password)) {
+                users.setStatus("admin");
+                cek = true;
+            } else if (users.getUsernameCust().equals(username) && users.getPasswordCust().equals(password)) {
+                users.setStatus("customer");
+                cek = true;
             }
             return cek;
     }
